@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --black: rgba(0, 0, 0, 1);
+  --color-1: rgba(249, 65, 68, 1);
+  --color-2: rgba(243, 114, 44, 1);
+  --gray: rgba(79, 79, 79, 1);
+  --gray-2: rgba(189, 189, 189, 1);
+  --primary-text-font-family: "Inter", Helvetica;
+  --primary-text-font-size: 20px;
+  --primary-text-font-style: normal;
+  --primary-text-font-weight: 500;
+  --primary-text-letter-spacing: 0px;
+  --primary-text-line-height: normal;
+  --secondary-text-font-family: "Inter", Helvetica;
+  --secondary-text-font-size: 12px;
+  --secondary-text-font-style: normal;
+  --secondary-text-font-weight: 400;
+  --secondary-text-letter-spacing: 0px;
+  --secondary-text-line-height: normal;
+  --value-text-font-family: "Inter", Helvetica;
+  --value-text-font-size: 32px;
+  --value-text-font-style: normal;
+  --value-text-font-weight: 500;
+  --value-text-letter-spacing: 0px;
+  --value-text-line-height: normal;
+}

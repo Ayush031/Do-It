@@ -1,11 +1,19 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+module.exports = {
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        greenLight: "#357937",
+        greenDark: "#3f9142",
+        textBlack1:"#1B281B"
+      },
+      fontFamily: {
+        "primary-text": "var(--primary-text-font-family)",
+        "secondary-text": "var(--secondary-text-font-family)",
+        "value-text": "var(--value-text-font-family)",
+      },
+    },
   },
   plugins: [],
-}
+};
