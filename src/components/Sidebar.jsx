@@ -8,7 +8,7 @@ const Frame = () => {
   const [infoHover, setInfoHover] = useState(false);
 
   return (
-    <div className="flex flex-col w-[280px] h-[850px] px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
+    <div className="sidebar flex flex-col w-[280px] h-[850px] px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
       <img
         src={theme === "dark" ? icons.profile : icons.profile}
         className="rounded-full"

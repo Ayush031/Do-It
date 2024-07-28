@@ -9,21 +9,25 @@ const Todos = () => {
   const filteredTodos = (checked) =>
     todos.filter((todo) => todo.checked === checked);
 
+  const completedTodos = filteredTodos(true);
+
   return (
     <>
-      <div className={`${gridType ? "grid grid-cols-3 gap-7" : "space-y-4"}`}>
-        <div>
-          <h2 className="text-xl font-semibold">Active Todos</h2>
+      <div>
+        <div className={`${gridType ? "grid grid-cols-3 gap-7" : "space-y4"}`}>
           {filteredTodos(false).map((todo) => (
             <TodoItem key={todo.id} todo={todo} />
           ))}
         </div>
-
         <div className="mt-4">
-          <h2 className="text-xl font-semibold">Completed Todos</h2>
-          {filteredTodos(true).map((todo) => (
-            <TodoItem key={todo.id} todo={todo} />
-          ))}
+          {completedTodos.length > 0 && (
+            <h2 className="text-xl font-semibold">Completed Todos</h2>
+          )}
+          <div>
+            {completedTodos.map((todo) => (
+              <TodoItem key={todo.id} todo={todo} />
+            ))}
+          </div>
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { icons } from "../data";
 import { useDispatch, useSelector } from "react-redux";
 import { changeGridType, changeTheme } from "../features/todo/todoReducer";
@@ -6,24 +6,33 @@ import { changeGridType, changeTheme } from "../features/todo/todoReducer";
 export default function Navbar() {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
-  const [gridType, setGridType] = useState(false);
+  const gridType = useSelector((state) => state.gridType);
+  const [localGridType, setLocalGridType] = useState(gridType);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", theme === "dark");
+  }, [theme]);
+
+  const handleSidebarMenu = () => {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hidden");
+  };
 
   const handleColorTheme = () => {
-    theme === "dark"
-      ? dispatch(changeTheme("light"))
-      : dispatch(changeTheme("dark"));
-    document.body.classList.toggle("dark", theme == "dark");
+    const newTheme = theme === "dark" ? "light" : "dark";
+    dispatch(changeTheme(newTheme));
   };
 
   const handleAppGrid = () => {
-    setGridType(!gridType);
-    dispatch(changeGridType(gridType));
+    const newGridType = !localGridType;
+    setLocalGridType(newGridType);
+    dispatch(changeGridType(newGridType));
   };
 
   return (
     <div className="h-14 py-3 px-12 bg-[#fbfdfb] dark:bg-darkTheme flex justify-between items-center">
       <div className="justify-start items-center gap-6 flex">
-        <div className="w-6 h-6 relative">
+        <div className="w-6 h-6 relative cursor-pointer" onClick={handleSidebarMenu}>
           <img
             src={theme === "dark" ? icons.menu.dark : icons.menu.light}
             alt="menu"
@@ -40,7 +49,10 @@ export default function Navbar() {
       </div>
       <div className="h-6 justify-end items-center gap-6 flex">
         <div className="w-6 h-6 relative cursor-pointer" onClick={() => {}}>
-          <img src={icons.search.light} alt="search" />
+          <img
+            src={theme === "dark" ? icons.search.dark : icons.search.light}
+            alt="search"
+          />
         </div>
         <div
           className="w-6 h-6 relative cursor-pointer"
@@ -48,7 +60,7 @@ export default function Navbar() {
         >
           <img
             src={
-              gridType
+              localGridType
                 ? theme === "dark"
                   ? icons.gridType.appGrid.dark
                   : icons.gridType.appGrid.light
@@ -65,7 +77,7 @@ export default function Navbar() {
         >
           <img
             src={
-              theme === "light" ? icons.themeMode.light : icons.themeMode.dark
+              theme === "dark" ? icons.themeMode.dark : icons.themeMode.light
             }
             alt="color theme"
           />

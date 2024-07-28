@@ -2,7 +2,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
     todos: JSON.parse(localStorage.getItem("todos")) || [],
-    theme: localStorage.getItem("theme"),
+    theme: "",
     gridType: localStorage.getItem("gridType") || false,
 };
 
@@ -32,7 +32,6 @@ export const todoReducer = createSlice({
         },
         changeTheme: (state, action) => {
             state.theme = action.payload;
-            localStorage.setItem("theme", action.payload);
         },
         changeGridType: (state, action) => {
             state.gridType = action.payload;

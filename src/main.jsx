@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -18,15 +18,23 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />}>
         <Route path="all-tasks" element={<div>Page for all tasks</div>} />
         <Route path="today-tasks" element={<TodayTodo />} />
-        <Route path="important-tasks" element={<div>Page for important tasks</div>} />
-        <Route path="planned-tasks" element={<div>Page for planned tasks</div>} />
-        <Route path="assigned-tasks" element={<div>Page for assigned tasks</div>} />
+        <Route
+          path="important-tasks"
+          element={<div>Page for important tasks</div>}
+        />
+        <Route
+          path="planned-tasks"
+          element={<div>Page for planned tasks</div>}
+        />
+        <Route
+          path="assigned-tasks"
+          element={<div>Page for assigned tasks</div>}
+        />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Route>
   )
 );
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <RouterProvider router={router} />
