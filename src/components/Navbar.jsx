@@ -9,7 +9,7 @@ export default function Navbar() {
   const [gridType, setGridType] = useState(false);
 
   const handleColorTheme = () => {
-    localStorage.getItem(theme === "dark") || theme === "dark"
+    theme === "dark"
       ? dispatch(changeTheme("light"))
       : dispatch(changeTheme("dark"));
     document.body.classList.toggle("dark", theme == "dark");
@@ -24,11 +24,14 @@ export default function Navbar() {
     <div className="h-14 py-3 px-12 bg-[#fbfdfb] dark:bg-darkTheme flex justify-between items-center">
       <div className="justify-start items-center gap-6 flex">
         <div className="w-6 h-6 relative">
-          <img src={icons.menu.light} alt="menu" />
+          <img
+            src={theme === "dark" ? icons.menu.dark : icons.menu.light}
+            alt="menu"
+          />
         </div>
         <div className="justify-start items-center gap-1 flex">
           <div className="w-8 h-8 relative">
-            <img src={icons.logo.light} alt="logo" />
+            <img src={icons.logo} alt="logo" />
           </div>
           <div className="text-greenDark text-2xl font-bold font-['Sen'] leading-normal">
             DoIt
@@ -43,13 +46,29 @@ export default function Navbar() {
           className="w-6 h-6 relative cursor-pointer"
           onClick={handleAppGrid}
         >
-          <img src={icons.appGrid.light} alt="app grid" />
+          <img
+            src={
+              gridType
+                ? theme === "dark"
+                  ? icons.gridType.appGrid.dark
+                  : icons.gridType.appGrid.light
+                : theme === "dark"
+                ? icons.gridType.list.dark
+                : icons.gridType.list.light
+            }
+            alt="gridType"
+          />
         </div>
         <div
           className="w-6 h-6 relative cursor-pointer"
           onClick={handleColorTheme}
         >
-          <img src={icons.colorTheme.light} alt="color theme" />
+          <img
+            src={
+              theme === "light" ? icons.themeMode.light : icons.themeMode.dark
+            }
+            alt="color theme"
+          />
         </div>
       </div>
     </div>

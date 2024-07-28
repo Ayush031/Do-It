@@ -2,8 +2,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
     todos: JSON.parse(localStorage.getItem("todos")) || [],
-    completedTodos: [],
-    theme: localStorage.getItem("theme") || "light",
+    theme: localStorage.getItem("theme"),
     gridType: localStorage.getItem("gridType") || false,
 };
 
@@ -15,7 +14,7 @@ export const todoReducer = createSlice({
             const todo = {
                 id: nanoid(),
                 title: action.payload,
-                completed: false,
+                checked: false,
             };
             state.todos.unshift(todo);
             localStorage.setItem("todos", JSON.stringify(state.todos));
@@ -24,14 +23,12 @@ export const todoReducer = createSlice({
             state.todos = state.todos.filter((todo) => todo.id !== action.payload);
             localStorage.setItem("todos", JSON.stringify(state.todos));
         },
-        completeTodo: (state, action) => {
-            state.todos = state.todos.map((todo) => {
-                if (todo.id === action.payload) {
-                    return { ...todo, completed: !todo.completed };
-                }
-                return todo;
-            });
-            localStorage.setItem("todos", JSON.stringify(state.todos));
+        toggleTodo: (state, action) => {
+            const todo = state.todos.find((todo) => todo.id === action.payload);
+            if (todo) {
+                todo.checked = !todo.checked;
+                localStorage.setItem("todos", JSON.stringify(state.todos));
+            }
         },
         changeTheme: (state, action) => {
             state.theme = action.payload;
@@ -40,10 +37,13 @@ export const todoReducer = createSlice({
         changeGridType: (state, action) => {
             state.gridType = action.payload;
             localStorage.setItem("gridType", action.payload);
-        }
+        },
+        todoStatus: (state) => {
+            state.completedTodos = state.todos.filter((todo) => todo.checked);
+        },
     },
 });
 
-export const { addTodo, removeTodo, completeTodo, changeTheme, changeGridType } = todoReducer.actions;
+export const { addTodo, removeTodo, toggleTodo, changeTheme, changeGridType } = todoReducer.actions;
 
 export default todoReducer.reducer;

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { sideBarRouteItems } from "../data";
-import { icons } from "../data";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { icons, sideBarRouteItems } from "../data";
 
 const Frame = () => {
+  const theme = useSelector((state) => state.theme);
   const [infoHover, setInfoHover] = useState(false);
+
   return (
     <div className="flex flex-col w-[280px] h-[850px] px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
-      <img src={icons.profile.light} className="rounded-full" />
-      <div className="relative w-fit [font-family:'Outfit-Medium',Helvetica] font-medium text-[#1a271b] text-[15px] tracking-[0] leading-5 whitespace-nowrap">
+      <img
+        src={theme === "dark" ? icons.profile : icons.profile}
+        className="rounded-full"
+      />
+      <div className="relative w-fit [font-family:'Outfit-Medium',Helvetica] font-medium text-lightTextColor dark:text-darkTextColor text-[15px] tracking-[0] leading-5 whitespace-nowrap">
         Hey, ABCD
       </div>
       <section className="flex flex-col w-full items-start relative flex-[0_0_auto]">
@@ -23,7 +28,11 @@ const Frame = () => {
                     : "rounded-lg flex items-center gap-4 px-4 py-2 relative self-stretch w-full flex-[0_0_auto] text-lightTextColor bg-lightSidebarChild dark:bg-transparent dark:text-darkTextColor "
                 }
               >
-                <img className="relative w-6 h-6" alt="Menu" src={i.iconUrl} />
+                <img
+                  className="relative w-6 h-6"
+                  alt="Menu"
+                  src={theme === "dark" ? i.iconUrl.dark : i.iconUrl.light}
+                />
                 <div className="relative w-fit [font-family:'Outfit-Medium',Helvetica] font-medium text-[15px] tracking-[0] leading-5 whitespace-nowrap">
                   {i.title}
                 </div>
@@ -34,7 +43,7 @@ const Frame = () => {
       </section>
       <section className="py-6 bg-lightSidebarChild dark:bg-darkBgSecondary w-full h-fit">
         <div className="px-4 py-2 flex gap-4 items-center">
-          <img src={icons.sum.light} />
+          <img src={theme === "dark" ? icons.sum.dark : icons.sum.light} />
           <span>Add List</span>
         </div>
       </section>
@@ -50,7 +59,7 @@ const Frame = () => {
               }}
               onMouseLeave={() => setInfoHover(false)}
             >
-              <img src={icons.info.light} />
+              <img src={icons.info} />
               {infoHover && (
                 <div className="absolute text-[10px] text-lightSideBarBg bg-lightTextColor dark:bg-darkTextColor dark:text-darkGreenColor rounded-md w-24 p-[2px] px-1 -translate-y-[18px] translate-x-5">
                   Info About Tasks

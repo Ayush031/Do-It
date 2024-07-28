@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar, SideBar } from "./components";
 import { useSelector } from "react-redux";
 
 const App = () => {
-  // const reduxTodos = useSelector((state) => state.todos);
-  // const [todos, setTodos] = useState(reduxTodos);
-  // if (todos && todos.length > 0) {
-  // }
+  const theme = useSelector((state) => state.theme);
 
-  
+  useEffect(() => {
+    console.log(theme);
+  }, [theme]);
 
   return (
     <div className=" text-lightTextColor dark:text-slate-100 dark:bg-darkBgPrimary">

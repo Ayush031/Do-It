@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { TodayTodoNavIcons } from "../data";
 import { addTodo } from "../features/todo/todoReducer";
 
 const TodayTodoNav = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
-
+  const theme = useSelector((state) => state.theme);
   const handleAddTodo = (e) => {
     e.preventDefault();
     dispatch(addTodo(input));
@@ -33,7 +33,10 @@ const TodayTodoNav = () => {
             <div className="flex gap-6">
               {TodayTodoNavIcons.map((icon, index) => (
                 <button key={index} type="button">
-                  <img src={icon} className="h-6 w-6" />
+                  <img
+                    src={theme === "dark" ? icon.dark : icon.light}
+                    className="h-6 w-6"
+                  />
                 </button>
               ))}
             </div>

@@ -1,135 +1,139 @@
-import appGrid from "/app-grid.svg";
-import assign from "/assign.svg";
-import bell from '/bell.svg';
-import calendar1 from "/calendar1.svg";
-import calendar2 from "/calendar2.svg";
-import carbonPlan from "/carbon_plan.svg";
-import colorTheme from "/colorTheme.svg";
-import info from '/info.svg';
-import logo from '/logo.svg';
-import menu from "/menu.svg";
-import repeat from '/repeat.svg'
-import search from "/search.svg";
-import star from "/star.svg";
-import sum from '/sum.svg';
-import task from '/task.svg';
-import caretDown from '/caretDown.svg';
-import profile from '/profile.png';
+// import appGrid from "/app-grid.svg";
+// import assign from "/assign.svg";
+// import bell from '/bell.svg';
+// import calendar1 from "/calendar1.svg";
+// import calendar2 from "/calendar2.svg";
+// import carbonPlan from "/carbon_plan.svg";
+// import colorTheme from "/colorTheme.svg";
+// import info from '/info.svg';
+// import logo from '/logo.svg';
+// import menu from "/menu.svg";
+// import repeat from '/repeat.svg'
+// import search from "/search.svg";
+// import star from "/star.svg";
+// import sum from '/sum.svg';
+// import task from '/task.svg';
+// import caretDown from '/caretDown.svg';
+// import profile from '/profile.png';
 
 
 export const icons = {
-    appGrid: {
-        light: appGrid,
-        dark: "/app-grid.svg"
+    logo: "/logo.svg",
+    profile: "/profile.png",
+    gridType: {
+        list: {
+            light: "/listLight.svg",
+            dark: "/listDark.svg"
+        },
+        appGrid: {
+            light: "/appGridLight.svg",
+            dark: "/appGridDark.svg"
+        },
     },
     assign: {
-        light: "/assign.svg",
-        dark: "/assign.svg"
+        light: "/assignLight.svg",
+        dark: "/assignDark.svg"
     },
     bell: {
-        light: "/bell.svg",
-        dark: "/bell.svg"
+        light: "/bellLight.svg",
+        dark: "/bellDark.svg"
     },
     calendar: {
-        light: "/calendar1.svg",
-        dark: "/calendar2.svg"
+        light: "/calendarLight.svg",
+        dark: "/calendarDark.svg"
     },
     carbonPlan: {
-        light: "/carbon_plan.svg",
-        dark: "/carbon_plan.svg"
+        light: "/carbon_planLight.svg",
+        dark: "/carbon_planDark.svg"
     },
-    colorTheme: {
-        light: "/colorTheme.svg",
-        dark: "/colorTheme.svg"
+    themeMode: {
+        light: "/themeLight.svg",
+        dark: "/themeDark.svg"
     },
-    info: {
-        light: "/info.svg",
-        dark: "/info.svg"
-    },
-    logo: {
-        light: "/logo.svg",
-        dark: "/logo.svg"
-    },
+    info: "/info.svg",
     menu: {
-        light: "/menu.svg",
-        dark: "/menu.svg"
+        light: "/menuLight.svg",
+        dark: "/menuDark.svg"
     },
     repeat: {
-        light: "/repeat.svg",
-        dark: "/repeat.svg"
+        light: "/repeatLight.svg",
+        dark: "/repeatDark.svg"
     },
     search: {
-        light: "/search.svg",
-        dark: "/search.svg"
+        light: "/searchLight.svg",
+        dark: "/searchDark.svg"
     },
     star: {
-        light: "/star.svg",
-        dark: "/star.svg"
+        filled: {
+            light: "/starFilledLight.svg",
+            dark: "/starFilledDark.svg"
+        },
+        outline: {
+            light: "/starLight.svg",
+            dark: "/starDark.svg"
+        }
     },
     sum: {
-        light: "/sum.svg",
-        dark: "/sum.svg"
+        light: "/sumLight.svg",
+        dark: "/sumDark.svg"
     },
     task: {
-        light: "/task.svg",
-        dark: "/task.svg"
+        light: "/taskLight.svg",
+        dark: "/taskDark.svg"
     },
     caretDown: {
-        light: "/caretDown.svg",
-        dark: "/caretDown.svg"
+        light: "/caretDownLight.svg",
+        dark: "/caretDownDark.svg"
     },
-    profile: {
-        light: "/profile.png",
-        dark: "/profile.png"
-    }
 };
 
 
 export const sideBarRouteItems = [
     {
         title: "All Tasks",
-        iconUrl: icons.task.light,
+        iconUrl: {
+            light: icons.task.light,
+            dark: icons.task.dark
+        },
         route: "/all-tasks"
     },
     {
         title: "Today",
-        iconUrl: icons.calendar.light,
+        iconUrl: {
+            light: icons.calendar.light,
+            dark: icons.calendar.dark
+        },
         route: "/today-tasks"
     },
     {
         title: "Important",
-        iconUrl: star,
+        iconUrl: {
+            light: icons.star.outline.light,
+            dark: icons.star.outline.dark
+        },
         route: "/important-tasks"
     },
     {
         title: "Planned",
-        iconUrl: carbonPlan,
+        iconUrl: {
+            light: icons.carbonPlan.light,
+            dark: icons.carbonPlan.dark
+        },
         route: "/planned-tasks"
     },
     {
         title: "Assigned to me",
-        iconUrl: assign,
+        iconUrl: {
+            light: icons.assign.light,
+            dark: icons.assign.dark
+        },
         route: "/assigned-tasks"
     },
 ];
 
-export const navbarIcons = [
-    {
-        iconUrl: search,
-        title: "search",
-    },
-    {
-        iconUrl: appGrid,
-        title: "gridflow",
-    },
-    {
-        iconUrl: colorTheme,
-        title: "colorTheme",
-    },
-];
 
 export const TodayTodoNavIcons = [
-    bell,
-    repeat,
-    calendar2
+    icons.bell,
+    icons.repeat,
+    icons.calendar
 ];
