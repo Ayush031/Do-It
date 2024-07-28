@@ -16,7 +16,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<App />}>
-        <Route path="today" element={<TodayTodo />} />
+        <Route path="all-tasks" element={<div>Page for all tasks</div>} />
+        <Route path="today-tasks" element={<TodayTodo />} />
+        <Route path="important-tasks" element={<div>Page for important tasks</div>} />
+        <Route path="planned-tasks" element={<div>Page for planned tasks</div>} />
+        <Route path="assigned-tasks" element={<div>Page for assigned tasks</div>} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Route>

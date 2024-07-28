@@ -6,11 +6,16 @@ const Todos = () => {
   const todosRedux = useSelector((state) => state.todos);
 
   return (
-    <div>
-      {todosRedux.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
-      ))}
-    </div>
+    <>
+      <div>
+        {todosRedux?.map((todo) => (
+          <TodoItem key={todo.id} todo={todo} />
+        ))}
+      </div>
+      <div>
+        
+      </div>
+    </>
   );
 };
 

@@ -33,7 +33,7 @@ const TodayTodoNav = () => {
             <div className="flex gap-6">
               {TodayTodoNavIcons.map((icon, index) => (
                 <button key={index} type="button">
-                  <img src={icon} className="h-6 w-6" />
+                  <img src={icon} className="h-6 w-6"/>
                 </button>
               ))}
             </div>

@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         greenLight: "#357937",
         greenDark: "#3f9142",
-        textBlack1:"#1B281B"
+        textBlack1: "#1B281B"
       },
       fontFamily: {
         "primary-text": "var(--primary-text-font-family)",
@@ -15,5 +16,11 @@ module.exports = {
       },
     },
   },
+  // "compilerOptions": {
+  //   "baseUrl": ".",
+  //   "paths": {
+  //     "@/*": ["./src/*"]
+  //   }
+  // },
   plugins: [],
 };

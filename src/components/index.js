@@ -4,5 +4,6 @@ import TodayTodoNav from "./TodayTodoNav";
 import TodoUtility from "./TodoUtility";
 import TodoItem from "./TodoItem";
 import Todos from "./Todos";
+// import PieChart from "./PieChart";
 
 export { Navbar, SideBar, TodoUtility, TodoItem, TodayTodoNav, Todos };
