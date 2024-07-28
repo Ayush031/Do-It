@@ -11,7 +11,7 @@ const App = () => {
   }, [theme]);
 
   return (
-    <div className="text-lightTextColor dark:text-slate-100 dark:bg-darkBgPrimary">
+    <div className="text-lightTextColor dark:text-slate-100 dark:bg-darkBgPrimary font-mono">
       <Navbar />
       <section className="flex px-12">
         <aside>

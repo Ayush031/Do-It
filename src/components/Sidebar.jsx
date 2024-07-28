@@ -13,7 +13,7 @@ const Frame = () => {
         src={theme === "dark" ? icons.profile : icons.profile}
         className="rounded-full"
       />
-      <div className="relative w-fit [font-family:'Outfit-Medium',Helvetica] font-medium text-lightTextColor dark:text-darkTextColor text-[15px] tracking-[0] leading-5 whitespace-nowrap">
+      <div className="relative w-fit font-medium text-lightTextColor dark:text-darkTextColor text-[15px] tracking-[0] leading-5 whitespace-nowrap">
         Hey, ABCD
       </div>
       <section className="flex flex-col w-full items-start relative flex-[0_0_auto]">
@@ -33,7 +33,7 @@ const Frame = () => {
                   alt="Menu"
                   src={theme === "dark" ? i.iconUrl.dark : i.iconUrl.light}
                 />
-                <div className="relative w-fit [font-family:'Outfit-Medium',Helvetica] font-medium text-[15px] tracking-[0] leading-5 whitespace-nowrap">
+                <div className="relative w-fit font-medium text-[15px] tracking-[0] leading-5 whitespace-nowrap">
                   {i.title}
                 </div>
               </NavLink>
@@ -78,7 +78,7 @@ const Frame = () => {
                 className="w-[51.85px] h-[11.30px] flex items-center gap-2"
               >
                 <div className="w-1.5 h-1.5 bg-greenDark rounded-full" />
-                <div className="text-lightTextColor dark:text-darkTextColor text-[10px] font-normal font-mono">
+                <div className="text-lightTextColor dark:text-darkTextColor text-[10px] font-normal">
                   {i}
                 </div>
               </div>

@@ -21,9 +21,9 @@ const Todos = () => {
         </div>
         <div className="mt-4">
           {completedTodos.length > 0 && (
-            <h2 className="text-xl font-semibold">Completed Todos</h2>
+            <h2 className="text-xl font-semibold ">Completed Todos</h2>
           )}
-          <div>
+          <div className="py-6" >
             {completedTodos.map((todo) => (
               <TodoItem key={todo.id} todo={todo} />
             ))}

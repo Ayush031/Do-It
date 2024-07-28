@@ -42,7 +42,7 @@ export default function Navbar() {
           <div className="w-8 h-8 relative">
             <img src={icons.logo} alt="logo" />
           </div>
-          <div className="text-greenDark text-2xl font-bold font-['Sen'] leading-normal">
+          <div className="text-greenDark text-2xl font-bold leading-normal">
             DoIt
           </div>
         </div>

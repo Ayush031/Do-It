@@ -1,15 +1,26 @@
 import React from "react";
 import { icons } from "../data";
+import { useSelector } from "react-redux";
 
 function TodoUtility() {
+  const theme = useSelector((state) => state.theme);
   return (
     <>
       <div className="flex items-center ">
-        <div className="text-[#142e15]/60 text-[13px] font-medium font-['Outfit'] leading-none">
+        <div
+          className={`${
+            theme === "dark" ? "text-darkTextColor/90" : "text-lightTextColor/90"
+          } text-[14px] font-medium leading-none`}
+        >
           To Do
         </div>
         <span>
-          <img src={icons.caretDown.light} alt="" />
+          <img
+            src={
+              theme === "dark" ? icons.caretDown.dark : icons.caretDown.light
+            }
+            alt=""
+          />
         </span>
       </div>
     </>

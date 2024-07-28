@@ -27,7 +27,7 @@ const TodayTodoNav = () => {
             id="todo"
             placeholder="ToDo"
             onChange={(e) => setInput(e.target.value)}
-            className="text-[#1a271b]/70 text-[15px] font-normal font-['Outfit'] leading-tight w-full bg-transparent outline-none w-full"
+            className="text-[#1a271b]/70 text-[15px] font-normal leading-tight w-full bg-transparent outline-none w-full"
           />
           <div className="w-full flex justify-between">
             <div className="flex gap-6">
@@ -48,7 +48,7 @@ const TodayTodoNav = () => {
                   !input && "disabled:cursor-not-allowed disabled:opacity-50"
                 } `}
             >
-              <span className="text-darkCheckboxFill dark:text-darkTextColor text-[15px] font-medium font-['Outfit'] leading-tight">
+              <span className="text-darkCheckboxFill dark:text-darkTextColor text-[15px] font-medium leading-tight">
                 ADD TASK
               </span>
             </button>

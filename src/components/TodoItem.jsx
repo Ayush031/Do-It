@@ -16,17 +16,17 @@ const TodoItem = (props) => {
 
   return (
     <div
-      className={`flex justify-between items-center gap-x-5 py-4 pr-8 ${
-        props.todo.checked ? "bg-gray-200 dark:bg-gray-800" : ""
+      className={`flex justify-between items-center gap-x-5 py-3 pr-8 ${
+        props.todo.checked ? "" : ""
       } ${
         gridType
           ? "border border-[1.5px] border-lightSideBarBg dark:border-darkGreenColor/75"
           : "border-t border-t-[1.5px] border-t-lightSideBarBg dark:border-t-darkGreenColor/75"
       }`}
     >
-      <div>
+      <div className="flex items-center" >
         <input
-          className="m-3"
+          className="m-4 appearance-none checked:bg-darkCheckboxFill checked:border-none h-3.5 w-3.5 border border-lightTextColor dark:border-darkTextColor rounded-sm cursor-pointer"
           type="checkbox"
           name="todoStatus"
           id={`todoStatus-${props.todo.id}`}
