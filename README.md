@@ -5,9 +5,9 @@
 
 ## Features
 - `Task Management`: Add, remove, and toggle tasks between completed and pending states.
-- **Sidebar Navigation**: Easy access to different sections including all tasks, today’s tasks, important tasks, planned tasks, and assigned tasks.
-- **Grid/List View**: Toggle between grid and list views for displaying tasks.
-- **Local Storage Integration**: Persist data in local storage to maintain state across page reloads.
+- `Sidebar Navigation`: Easy access to different sections including all tasks, today’s tasks, important tasks, planned tasks, and assigned tasks.
+- `Grid/List View`: Toggle between grid and list views for displaying tasks.
+- `Local Storage Integration`: Persist data in local storage to maintain state across page reloads.
 
 ## Technologies Used
 
