@@ -4,6 +4,7 @@ import TodayTodoNav from "./TodayTodoNav";
 import TodoUtility from "./TodoUtility";
 import TodoItem from "./TodoItem";
 import Todos from "./Todos";
-import Checkbox from "./Checkbox";
+import TodoItemDescription from "./TodoItemDescription";
 
-export {Checkbox, Navbar, SideBar, TodoUtility, TodoItem, TodayTodoNav, Todos };
+
+export { Navbar, SideBar, TodoUtility, TodoItem, TodayTodoNav, Todos, TodoItemDescription };

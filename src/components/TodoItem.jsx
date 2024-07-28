@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTodo } from "../features/todo/todoReducer";
+import { toggleTodo, selectTodo } from "../features/todo/todoReducer";
 import { icons } from "../data";
 
 const TodoItem = (props) => {
@@ -11,35 +11,40 @@ const TodoItem = (props) => {
   const theme = useSelector((state) => state.theme);
 
   const handleTodoStatus = () => {
-    dispatch(toggleTodo(props.todo.id));
+    dispatch(toggleTodo(props?.todo?.id));
+  };
+
+  const handleTodoDescription = () => {
+    dispatch(selectTodo(props?.todo?.id));
+    const todoDescription = document.querySelector(".todoDescription");
+    todoDescription.classList.toggle("hidden");
   };
 
   return (
     <div
       className={`flex justify-between items-center gap-x-5 py-3 pr-8 ${
-        props.todo.checked ? "" : ""
-      } ${
         gridType
           ? "border border-[1.5px] border-lightSideBarBg dark:border-darkGreenColor/75"
           : "border-t border-t-[1.5px] border-t-lightSideBarBg dark:border-t-darkGreenColor/75"
       }`}
     >
-      <div className="flex items-center" >
+      <div onClick={handleTodoDescription} className="flex w-full cursor-pointer items-center">
         <input
           className="m-4 appearance-none checked:bg-darkCheckboxFill checked:border-none h-3.5 w-3.5 border border-lightTextColor dark:border-darkTextColor rounded-sm cursor-pointer"
           type="checkbox"
           name="todoStatus"
-          id={`todoStatus-${props.todo.id}`}
-          checked={props.todo.checked}
+          id={`todoStatus-${props?.todo?.id}`}
+          checked={props?.todo?.checked}
           onChange={handleTodoStatus}
         />
+
         <label
           htmlFor={`todoStatus-${props.todo.id}`}
           className={`text-lightTextColor dark:text-darkTextColor ${
-            props.todo.checked ? "line-through" : ""
+            props?.todo?.checked ? "line-through" : ""
           }`}
         >
-          {props.todo.title}
+          {props?.todo?.title}
         </label>
       </div>
       <div

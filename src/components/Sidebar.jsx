@@ -8,7 +8,7 @@ const Frame = () => {
   const [infoHover, setInfoHover] = useState(false);
 
   return (
-    <div className="sidebar flex flex-col w-[280px] h-[850px] px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
+    <div className="flex flex-col w-[280px] h-[850px] px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
       <img
         src={theme === "dark" ? icons.profile : icons.profile}
         className="rounded-full"
@@ -69,17 +69,17 @@ const Frame = () => {
           </div>
           <h2 className="text-2xl">11</h2>
         </div>
-        <div className="flex flex-col items-center gap-y-3">
+        <div className="flex flex-col justify-center items-center gap-y-8">
           <div className="h-40 w-40 rounded-full border"></div>
           <div className="flex gap-5">
-            {["Pending", "Done"].map((i) => (
-              <div
-                key={i}
-                className="w-[51.85px] h-[11.30px] flex items-center gap-2"
-              >
-                <div className="w-1.5 h-1.5 bg-greenDark rounded-full" />
-                <div className="text-lightTextColor dark:text-darkTextColor text-[10px] font-normal">
-                  {i}
+            {[
+              { title: "Pending", color: "bg-darkSidebarItemActiveText" },
+              { title: "Done", color: "bg-greenLight" },
+            ].map((i) => (
+              <div key={i.title} className="flex items-center gap-1">
+                <div className={`w-1.5 h-1.5 ${i.color} rounded-full`} />
+                <div className="text-lightTextColor dark:text-darkTextColor text-[12px] font-normal">
+                  {i.title}
                 </div>
               </div>
             ))}

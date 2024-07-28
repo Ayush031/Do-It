@@ -85,6 +85,14 @@ export const icons = {
         light: "/caretDownLight.svg",
         dark: "/caretDownDark.svg"
     },
+    cross:{
+        light: "/crossLight.svg",
+        dark: "/crossDark.svg"
+    },
+    delete: {
+        light: "/deleteLight.svg",
+        dark: "/deleteDark.svg"
+    },
 };
 
 
