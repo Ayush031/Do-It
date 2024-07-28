@@ -4,6 +4,7 @@ const initialState = {
     todos: JSON.parse(localStorage.getItem("todos")) || [],
     completedTodos: [],
     theme: localStorage.getItem("theme") || "light",
+    gridType: localStorage.getItem("gridType") || false,
 };
 
 export const todoReducer = createSlice({
@@ -36,9 +37,13 @@ export const todoReducer = createSlice({
             state.theme = action.payload;
             localStorage.setItem("theme", action.payload);
         },
+        changeGridType: (state, action) => {
+            state.gridType = action.payload;
+            localStorage.setItem("gridType", action.payload);
+        }
     },
 });
 
-export const { addTodo, removeTodo, completeTodo, changeTheme } = todoReducer.actions;
+export const { addTodo, removeTodo, completeTodo, changeTheme, changeGridType } = todoReducer.actions;
 
 export default todoReducer.reducer;

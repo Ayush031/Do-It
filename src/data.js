@@ -16,35 +16,84 @@ import task from '/task.svg';
 import caretDown from '/caretDown.svg';
 import profile from '/profile.png';
 
+
 export const icons = {
-    appGrid,
-    assign,
-    bell,
-    calendar1,
-    calendar2,
-    carbonPlan,
-    info,
-    logo,
-    menu,
-    repeat,
-    search,
-    star,
-    sum,
-    task,
-    colorTheme,
-    caretDown,
-    profile
+    appGrid: {
+        light: appGrid,
+        dark: "/app-grid.svg"
+    },
+    assign: {
+        light: "/assign.svg",
+        dark: "/assign.svg"
+    },
+    bell: {
+        light: "/bell.svg",
+        dark: "/bell.svg"
+    },
+    calendar: {
+        light: "/calendar1.svg",
+        dark: "/calendar2.svg"
+    },
+    carbonPlan: {
+        light: "/carbon_plan.svg",
+        dark: "/carbon_plan.svg"
+    },
+    colorTheme: {
+        light: "/colorTheme.svg",
+        dark: "/colorTheme.svg"
+    },
+    info: {
+        light: "/info.svg",
+        dark: "/info.svg"
+    },
+    logo: {
+        light: "/logo.svg",
+        dark: "/logo.svg"
+    },
+    menu: {
+        light: "/menu.svg",
+        dark: "/menu.svg"
+    },
+    repeat: {
+        light: "/repeat.svg",
+        dark: "/repeat.svg"
+    },
+    search: {
+        light: "/search.svg",
+        dark: "/search.svg"
+    },
+    star: {
+        light: "/star.svg",
+        dark: "/star.svg"
+    },
+    sum: {
+        light: "/sum.svg",
+        dark: "/sum.svg"
+    },
+    task: {
+        light: "/task.svg",
+        dark: "/task.svg"
+    },
+    caretDown: {
+        light: "/caretDown.svg",
+        dark: "/caretDown.svg"
+    },
+    profile: {
+        light: "/profile.png",
+        dark: "/profile.png"
+    }
 };
+
 
 export const sideBarRouteItems = [
     {
         title: "All Tasks",
-        iconUrl: task,
+        iconUrl: icons.task.light,
         route: "/all-tasks"
     },
     {
         title: "Today",
-        iconUrl: calendar1,
+        iconUrl: icons.calendar.light,
         route: "/today-tasks"
     },
     {

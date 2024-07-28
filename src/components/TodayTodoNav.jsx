@@ -15,7 +15,7 @@ const TodayTodoNav = () => {
 
   return (
     <>
-      <div className="h-[178px] w-full border-t border-[#496e4a]/20 border-t-[1.75px] py-4 bg-gradient-to-t from-[#357937]/10 to-[#d0ffd2]/40">
+      <div className="h-[178px] w-full border-t border-[#496e4a]/20 border-t-[1.75px] py-4 bg-gradient-to-t from-[#357937]/10 to-[#d0ffd2]/40 dark:bg-darkBgPrimary">
         <form
           onSubmit={handleAddTodo}
           className="px-5 w-full pt-[42px] flex-col justify-center items-start gap-12 inline-flex"
@@ -33,19 +33,19 @@ const TodayTodoNav = () => {
             <div className="flex gap-6">
               {TodayTodoNavIcons.map((icon, index) => (
                 <button key={index} type="button">
-                  <img src={icon} className="h-6 w-6"/>
+                  <img src={icon} className="h-6 w-6" />
                 </button>
               ))}
             </div>
             <button
               type="submit"
               disabled={!input}
-              className={`px-4 py-2 bg-[#347837]/20 rounded-lg justify-start items-center gap-4 inline-flex 
+              className={`px-4 py-2 bg-[#347837]/30 dark:bg-darkGreenColor rounded-lg justify-start items-center gap-4 inline-flex 
                 ${
                   !input && "disabled:cursor-not-allowed disabled:opacity-50"
                 } `}
             >
-              <span className="text-[#347937] text-[15px] font-medium font-['Outfit'] leading-tight">
+              <span className="text-darkCheckboxFill dark:text-darkTextColor text-[15px] font-medium font-['Outfit'] leading-tight">
                 ADD TASK
               </span>
             </button>

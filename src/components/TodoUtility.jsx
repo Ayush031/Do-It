@@ -9,7 +9,7 @@ function TodoUtility() {
           To Do
         </div>
         <span>
-          <img src={icons.caretDown} alt="" />
+          <img src={icons.caretDown.light} alt="" />
         </span>
       </div>
     </>

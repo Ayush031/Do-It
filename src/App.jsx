@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar, SideBar } from "./components";
 import { useSelector } from "react-redux";
@@ -9,20 +9,20 @@ const App = () => {
   // if (todos && todos.length > 0) {
   // }
 
+  
+
   return (
-    <>
-      <div className="px-12 text-textBlack1 dark:text-slate-100">
-        <Navbar />
-        <section className="flex gap-x-12">
-          <aside>
-            <SideBar />
-          </aside>
-          <div className="w-full">
-            <Outlet />
-          </div>
-        </section>
-      </div>
-    </>
+    <div className=" text-lightTextColor dark:text-slate-100 dark:bg-darkBgPrimary">
+      <Navbar />
+      <section className="flex px-12">
+        <aside>
+          <SideBar />
+        </aside>
+        <div className="w-full pl-12 bg-transparent dark:bg-darkBgPrimary">
+          <Outlet />
+        </div>
+      </section>
+    </div>
   );
 };
 
