@@ -8,6 +8,7 @@ import { TodayTodo, ErrorPage } from "./routes/index.js";
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -17,12 +18,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<App />}>
+        <Route index element={<Navigate to="/today-tasks" />} />
+        <Route path="today-tasks" element={<TodayTodo />} />
+        <Route path="important-tasks" element={<Important />} />
         <Route path="all-tasks" element={<div>Page for all tasks</div>} />
-        <Route  path="today-tasks" element={<TodayTodo />} />
-        <Route
-          path="important-tasks"
-          element={<Important/>}
-        />
         <Route
           path="planned-tasks"
           element={<div>Page for planned tasks</div>}
