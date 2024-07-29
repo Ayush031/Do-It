@@ -10,10 +10,10 @@ const App = () => {
         <aside className="sidebar">
           <SideBar />
         </aside>
-        <div className="w-full pl-12 bg-transparent dark:bg-darkBgPrimary">
+        <div className="w-full px-2.5 bg-transparent dark:bg-darkBgPrimary">
           <Outlet />
         </div>
-        <div className="min-w-[400px] todoDescription hidden bg-darkSidebarItemActiveText/15">
+        <div className="min-w-[400px] -mr-12 todoDescription hidden bg-lightSideBarBg dark:bg-darkSideBarBg">
           <TodoItemDescription />
         </div>
       </section>

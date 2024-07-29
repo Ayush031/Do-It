@@ -39,7 +39,7 @@ export const todoReducer = createSlice({
             state.gridType = action.payload;
             localStorage.setItem("gridType", action.payload);
         },
-        todoStatus: (state, actions) => {
+        todoStatus: (state) => {
             state.completedTodos = state.todos.filter((todo) => todo.checked);
         },
         selectTodo: (state, action) => {
