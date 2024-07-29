@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { icons, sideBarRouteItems } from "../data";
-
+import DoughnutChart from "./DoughnutChart";
 const Frame = () => {
   const theme = useSelector((state) => state.theme);
   const [infoHover, setInfoHover] = useState(false);
+  const todos = useSelector((state) => state.todos);
+
+  const completedCount = todos.filter((todo) => todo.checked).length;
+  const pendingCount = todos.filter((todo) => !todo.checked).length ;
 
   return (
     <div className="flex flex-col w-[280px] h-[850px] px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
@@ -67,10 +71,17 @@ const Frame = () => {
               )}
             </div>
           </div>
-          <h2 className="text-2xl">11</h2>
+          <h2 className="text-2xl">{todos.length}</h2>
         </div>
         <div className="flex flex-col justify-center items-center gap-y-8">
-          <div className="h-40 w-40 rounded-full border"></div>
+          <DoughnutChart
+            completed={{
+              title: "Pending",
+              color: "#98E19B",
+              count: completedCount,
+            }}
+            pending={{ title: "Done", color: "#357937", count: pendingCount }}
+          />
           <div className="flex gap-5">
             {[
               { title: "Pending", color: "bg-darkSidebarItemActiveText" },
