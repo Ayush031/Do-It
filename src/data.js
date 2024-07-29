@@ -1,22 +1,3 @@
-// import appGrid from "/app-grid.svg";
-// import assign from "/assign.svg";
-// import bell from '/bell.svg';
-// import calendar1 from "/calendar1.svg";
-// import calendar2 from "/calendar2.svg";
-// import carbonPlan from "/carbon_plan.svg";
-// import colorTheme from "/colorTheme.svg";
-// import info from '/info.svg';
-// import logo from '/logo.svg';
-// import menu from "/menu.svg";
-// import repeat from '/repeat.svg'
-// import search from "/search.svg";
-// import star from "/star.svg";
-// import sum from '/sum.svg';
-// import task from '/task.svg';
-// import caretDown from '/caretDown.svg';
-// import profile from '/profile.png';
-
-
 export const icons = {
     logo: "/logo.svg",
     profile: "/profile.png",
@@ -85,7 +66,7 @@ export const icons = {
         light: "/caretDownLight.svg",
         dark: "/caretDownDark.svg"
     },
-    cross:{
+    cross: {
         light: "/crossLight.svg",
         dark: "/crossDark.svg"
     },
@@ -94,7 +75,6 @@ export const icons = {
         dark: "/deleteDark.svg"
     },
 };
-
 
 export const sideBarRouteItems = [
     {
@@ -138,7 +118,6 @@ export const sideBarRouteItems = [
         route: "/assigned-tasks"
     },
 ];
-
 
 export const TodayTodoNavIcons = [
     icons.bell,

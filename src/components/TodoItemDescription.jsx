@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { icons } from "../data";
 import TodoItem from "./TodoItem";
+import Calendar from "./Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTodo } from "../features/todo/todoReducer";
-import { icons } from "../data";
 
 const TodoItemFeature = ({ feature }) => {
   const theme = useSelector((state) => state.theme);
+  const [openCalender, setOpenCalender] = useState(false);
 
   return (
-    <div className="flex items-center gap-x-5 py-4 pr-8 border-t border-t-darkGreenColor/35 dark:border-t-darkSidebarItemActiveText">
-      <img
-        src={theme === "dark" ? feature.iconUrl.dark : feature.iconUrl.light}
-        alt={feature.title}
-      />
-      <h1>{feature.title}</h1>
-    </div>
+    <>
+      <div
+        className="flex items-center gap-x-5 py-4 pr-8 border-t border-t-darkGreenColor/35 dark:border-t-darkSidebarItemActiveText cursor-pointer"
+        onClick={() => {
+          if (feature.title === "Add Due Date") {
+            setOpenCalender(!openCalender);
+          }
+        }}
+      >
+        <img
+          src={theme === "dark" ? feature.iconUrl.dark : feature.iconUrl.light}
+          alt={feature.title}
+        />
+        <h1>{feature.title}</h1>
+      </div>
+      {openCalender && (
+        <div className="my-5 px-6">
+          <Calendar />
+        </div>
+      )}
+    </>
   );
 };
 
@@ -52,17 +68,27 @@ export default function TodoItemDescription() {
         <img
           alt="close"
           className="cursor-pointer"
-          onClick={() => document.querySelector(".todoDescription").classList.toggle("hidden")}
+          onClick={() =>
+            document
+              .querySelector(".todoDescription")
+              .classList.toggle("hidden")
+          }
           src={theme === "dark" ? icons.cross.dark : icons.cross.light}
         />
-        <h3>{"Created Today"}</h3>
+        <h3
+          className={`${
+            theme === "dark" ? "text-darkTextColor" : "text-lightTextColor"
+          }`}
+        >
+          {"Created Today"}
+        </h3>
         <img
           alt="delete"
           className="cursor-pointer"
           src={theme === "dark" ? icons.delete.dark : icons.delete.light}
           onClick={() => {
-            selectedTodo && dispatch(removeTodo(selectedTodo.id))
-            document.querySelector(".todoDescription").classList.add("hidden")
+            selectedTodo && dispatch(removeTodo(selectedTodo.id));
+            document.querySelector(".todoDescription").classList.add("hidden");
           }}
         />
       </div>

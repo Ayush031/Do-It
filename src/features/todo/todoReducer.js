@@ -5,7 +5,8 @@ const initialState = {
     theme: "",
     gridType: localStorage.getItem("gridType") || false,
     selectedTodo: null,
-    completedTodos: []
+    completedTodos: [],
+    importantTodos: [],
 };
 
 export const todoReducer = createSlice({
@@ -17,6 +18,7 @@ export const todoReducer = createSlice({
                 id: nanoid(),
                 title: action.payload,
                 checked: false,
+                important: false,
             };
             state.todos.unshift(todo);
             localStorage.setItem("todos", JSON.stringify(state.todos));
@@ -39,8 +41,13 @@ export const todoReducer = createSlice({
             state.gridType = action.payload;
             localStorage.setItem("gridType", action.payload);
         },
-        todoStatus: (state) => {
-            state.completedTodos = state.todos.filter((todo) => todo.checked);
+        toggleImportant: (state, action) => {
+            const todo = state.todos.find((todo) => todo.id === action.payload);
+            if (todo) {
+                todo.important = !todo.important;
+                state.importantTodos = state.todos.filter((todo) => todo.important);
+                localStorage.setItem("todos", JSON.stringify(state.todos));
+            }
         },
         selectTodo: (state, action) => {
             state.selectedTodo = state.todos.find(todo => todo.id === action.payload) || null;
@@ -48,6 +55,6 @@ export const todoReducer = createSlice({
     },
 });
 
-export const { addTodo, removeTodo, toggleTodo, changeTheme, changeGridType, selectTodo } = todoReducer.actions;
+export const { toggleImportant, addTodo, removeTodo, toggleTodo, changeTheme, changeGridType, selectTodo } = todoReducer.actions;
 
 export default todoReducer.reducer;

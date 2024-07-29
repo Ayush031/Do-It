@@ -6,5 +6,6 @@ import TodoItem from "./TodoItem";
 import Todos from "./Todos";
 import TodoItemDescription from "./TodoItemDescription";
 import DoughnutChart from "./DoughnutChart";
+import Calendar from "./Calendar";
 
-export { DoughnutChart, Navbar, SideBar, TodoUtility, TodoItem, TodayTodoNav, Todos, TodoItemDescription };
+export { Calendar, DoughnutChart, Navbar, SideBar, TodoUtility, TodoItem, TodayTodoNav, Todos, TodoItemDescription };

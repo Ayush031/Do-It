@@ -11,6 +11,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import Important from "./routes/Important.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +21,7 @@ const router = createBrowserRouter(
         <Route path="today-tasks" element={<TodayTodo />} />
         <Route
           path="important-tasks"
-          element={<div>Page for important tasks</div>}
+          element={<Important/>}
         />
         <Route
           path="planned-tasks"

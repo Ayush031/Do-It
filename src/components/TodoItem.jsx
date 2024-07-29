@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTodo, selectTodo } from "../features/todo/todoReducer";
+import {
+  toggleTodo,
+  selectTodo,
+  toggleImportant,
+} from "../features/todo/todoReducer";
 import { icons } from "../data";
 
 const TodoItem = (props) => {
-  const [starFilled, setStarFilled] = useState(false);
-
   const dispatch = useDispatch();
   const gridType = useSelector((state) => state.gridType);
   const theme = useSelector((state) => state.theme);
@@ -20,6 +22,10 @@ const TodoItem = (props) => {
     todoDescription.classList.toggle("hidden");
   };
 
+  const handleToggleImportant = () => {
+    dispatch(toggleImportant(props?.todo?.id));
+  };
+
   return (
     <div
       className={`flex justify-between items-center gap-x-5 py-3 pr-8 ${
@@ -28,7 +34,10 @@ const TodoItem = (props) => {
           : "border-t border-t-[1.5px] border-t-lightSideBarBg dark:border-t-darkGreenColor/75"
       }`}
     >
-      <div onClick={handleTodoDescription} className="flex w-full cursor-pointer items-center">
+      <div
+        onClick={handleTodoDescription}
+        className="flex w-full cursor-pointer items-center"
+      >
         <input
           className="m-4 appearance-none checked:bg-darkCheckboxFill checked:border-none h-3.5 w-3.5 border border-lightTextColor dark:border-darkTextColor rounded-sm cursor-pointer"
           type="checkbox"
@@ -47,15 +56,10 @@ const TodoItem = (props) => {
           {props?.todo?.title}
         </label>
       </div>
-      <div
-        className="mr-8"
-        onClick={() => {
-          setStarFilled(!starFilled);
-        }}
-      >
+      <div className="mr-8" onClick={handleToggleImportant}>
         <img
           src={
-            starFilled
+            props?.todo?.important
               ? theme === "dark"
                 ? icons.star.filled.dark
                 : icons.star.filled.light
