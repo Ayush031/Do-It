@@ -6,6 +6,7 @@ import DoughnutChart from "./DoughnutChart";
 const Frame = () => {
   const theme = useSelector((state) => state.theme);
   const [infoHover, setInfoHover] = useState(false);
+  const [profileHover, setProfileHover] = useState(false);
   const todos = useSelector((state) => state.todos);
 
   const completedCount = todos.filter((todo) => todo.checked).length;
@@ -13,8 +14,31 @@ const Frame = () => {
 
   return (
     <div className="flex flex-col w-[280px] h-[800px] mt-10 px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
-      <img src={icons.profile} className="rounded-full -mt-10" />
-      <div className="relative w-fit font-medium text-lightTextColor dark:text-darkTextColor text-[15px] tracking-[0] leading-5 whitespace-nowrap">
+      <div
+        className="relative cursor-pointer"
+        onMouseLeave={() => setProfileHover(false)}
+      >
+        <img
+          onClick={() => setProfileHover(true)}
+          src={icons.profile}
+          className="rounded-full -mt-10"
+        />
+        {profileHover && (
+          <div className="absolute z-10 flex flex-col text-[16px] text-lightTextColor bg-lightSidebarChild text-lightTextColor w-32 px-1 rounded-md -translate-x-6 mt-1">
+            {["Profile", "Logout"].map((item) => (
+              <button
+                key={item}
+                className={`px-4 py-2 ${
+                  item === "Profile" ? "border-b" : "border-t"
+                } border-lightTextColor/10`}
+              >
+                <Link to={`/${item}`}>{item}</Link>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="cursor-pointer relative w-fit font-medium text-lightTextColor dark:text-darkTextColor text-[15px] tracking-[0] leading-5 whitespace-nowrap">
         Hey, ABCD
       </div>
       <section className="flex flex-col w-full items-start relative flex-[0_0_auto]">
@@ -56,7 +80,6 @@ const Frame = () => {
               className="cursor-pointer relative"
               onMouseOver={() => {
                 setInfoHover(true);
-                console.log("hovered");
               }}
               onMouseLeave={() => setInfoHover(false)}
             >
@@ -77,7 +100,11 @@ const Frame = () => {
               color: "#98E19B",
               count: completedCount ? completedCount : 0,
             }}
-            pending={{ title: "Done", color: "#357937", count: pendingCount? pendingCount : 0 }}
+            pending={{
+              title: "Done",
+              color: "#357937",
+              count: pendingCount ? pendingCount : 0,
+            }}
           />
           <div className="flex gap-5">
             {[
