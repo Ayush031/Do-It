@@ -24,7 +24,7 @@ const Frame = () => {
         <div className="flex flex-col items-start px-0 py-6 relative self-stretch w-full flex-[0_0_auto] bg-lightSidebarChild dark:bg-darkBgSecondary">
           {sideBarRouteItems.map((i) => (
             <div className="w-full" key={i.title}>
-              <Link
+              <NavLink
                 to={i.route}
                 className={({ isActive }) =>
                   isActive
@@ -40,7 +40,7 @@ const Frame = () => {
                 <div className="relative w-fit font-medium text-[15px] tracking-[0] leading-5 whitespace-nowrap">
                   {i.title}
                 </div>
-              </Link>
+              </NavLink>
             </div>
           ))}
         </div>
