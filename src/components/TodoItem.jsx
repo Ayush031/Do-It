@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import { icons } from "../data";
 import { useDispatch, useSelector } from "react-redux";
 import {
   toggleTodo,
   selectTodo,
   toggleImportant,
 } from "../features/todo/todoReducer";
-import { icons } from "../data";
 
 const TodoItem = (props) => {
   const dispatch = useDispatch();

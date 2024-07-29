@@ -13,7 +13,7 @@ const Frame = () => {
   const pendingCount = todos.filter((todo) => !todo.checked).length;
 
   return (
-    <div className="flex flex-col w-[280px] h-[800px] mt-10 px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
+    <div className="flex flex-col w-[210px] lg:w-[280px] h-[800px] mt-10 px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
       <div
         className="relative cursor-pointer"
         onMouseLeave={() => setProfileHover(false)}

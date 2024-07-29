@@ -49,7 +49,7 @@ export default function TodoItemDescription() {
   if (!selectedTodo) return null;
 
   return (
-    <div className="py-10 flex flex-col gap-[360px] text-lightTextColor dark:text-darkTextColor">
+    <div className="md:relative  md:visible flex flex-col gap-[10px] md:gap-[360px] text-lightTextColor dark:text-darkTextColor">
       <div className="ml-12">
         <TodoItem todo={selectedTodo} />
         <div>
@@ -60,7 +60,6 @@ export default function TodoItemDescription() {
         <textarea
           placeholder="Add Notes"
           className="resize-none pl-10 py-4 w-full outline-none bg-transparent border-t border-t-darkGreenColor/35 dark:border-t-darkSidebarItemActiveText"
-          cols=""
           rows="2"
         />
       </div>
