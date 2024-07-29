@@ -18,7 +18,7 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<App />}>
         <Route path="all-tasks" element={<div>Page for all tasks</div>} />
-        <Route path="today-tasks" element={<TodayTodo />} />
+        <Route  path="today-tasks" element={<TodayTodo />} />
         <Route
           path="important-tasks"
           element={<Important/>}
