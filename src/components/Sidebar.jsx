@@ -9,14 +9,11 @@ const Frame = () => {
   const todos = useSelector((state) => state.todos);
 
   const completedCount = todos.filter((todo) => todo.checked).length;
-  const pendingCount = todos.filter((todo) => !todo.checked).length ;
+  const pendingCount = todos.filter((todo) => !todo.checked).length;
 
   return (
-    <div className="flex flex-col w-[280px] h-[850px] px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
-      <img
-        src={theme === "dark" ? icons.profile : icons.profile}
-        className="rounded-full"
-      />
+    <div className="flex flex-col w-[280px] h-[800px] mt-10 px-4 items-center justify-start gap-[9px] relative bg-lightSideBarBg dark:bg-darkSideBarBg">
+      <img src={icons.profile} className="rounded-full -mt-10" />
       <div className="relative w-fit font-medium text-lightTextColor dark:text-darkTextColor text-[15px] tracking-[0] leading-5 whitespace-nowrap">
         Hey, ABCD
       </div>
@@ -78,9 +75,9 @@ const Frame = () => {
             completed={{
               title: "Pending",
               color: "#98E19B",
-              count: completedCount,
+              count: completedCount ? completedCount : 0,
             }}
-            pending={{ title: "Done", color: "#357937", count: pendingCount }}
+            pending={{ title: "Done", color: "#357937", count: pendingCount? pendingCount : 0 }}
           />
           <div className="flex gap-5">
             {[

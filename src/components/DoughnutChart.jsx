@@ -18,11 +18,6 @@ const DoughnutChart = (props) => {
 
   const options = {
     responsive: true,
-    // plugins: {
-    //   legend: {
-    //     position: "top",
-    //   },
-    // },
   };
 
   return (
