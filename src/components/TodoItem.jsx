@@ -12,7 +12,11 @@ const TodoItem = (props) => {
   const gridType = useSelector((state) => state.gridType);
   const theme = useSelector((state) => state.theme);
 
-  const handleTodoStatus = () => {
+  const handleCheckboxClick = (e) => {
+  };
+
+  const handleTodoStatus = (e) => {
+    e.stopPropagation();
     dispatch(toggleTodo(props?.todo?.id));
   };
 
@@ -45,6 +49,7 @@ const TodoItem = (props) => {
           id={`todoStatus-${props?.todo?.id}`}
           checked={props?.todo?.checked}
           onChange={handleTodoStatus}
+          onClick={handleCheckboxClick}
         />
 
         <label
