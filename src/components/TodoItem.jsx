@@ -6,14 +6,12 @@ import {
   selectTodo,
   toggleImportant,
 } from "../features/todo/todoReducer";
+import { FiEdit } from "react-icons/fi";
 
 const TodoItem = (props) => {
   const dispatch = useDispatch();
-  const gridType = useSelector((state) => state.gridType);
   const theme = useSelector((state) => state.theme);
-
-  const handleCheckboxClick = (e) => {
-  };
+  const gridType = useSelector((state) => state.gridType);
 
   const handleTodoStatus = (e) => {
     e.stopPropagation();
@@ -38,10 +36,7 @@ const TodoItem = (props) => {
           : "border-t border-t-[1.5px] border-t-lightSideBarBg dark:border-t-darkGreenColor/75"
       }`}
     >
-      <div
-        onClick={handleTodoDescription}
-        className="flex w-full cursor-pointer items-center"
-      >
+      <div className="flex w-full cursor-pointer items-center">
         <input
           className="m-4 appearance-none checked:bg-darkCheckboxFill checked:border-none h-3.5 w-3.5 border border-lightTextColor dark:border-darkTextColor rounded-sm cursor-pointer"
           type="checkbox"
@@ -49,7 +44,6 @@ const TodoItem = (props) => {
           id={`todoStatus-${props?.todo?.id}`}
           checked={props?.todo?.checked}
           onChange={handleTodoStatus}
-          onClick={handleCheckboxClick}
         />
 
         <label
@@ -60,6 +54,9 @@ const TodoItem = (props) => {
         >
           {props?.todo?.title}
         </label>
+      </div>
+      <div onClick={handleTodoDescription}>
+        <FiEdit />
       </div>
       <div className="mr-8" onClick={handleToggleImportant}>
         <img

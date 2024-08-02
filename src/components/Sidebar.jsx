@@ -21,7 +21,7 @@ const Frame = () => {
         <img
           onClick={() => setProfileHover(true)}
           src={icons.profile}
-          className="rounded-full -mt-10"
+          className="rounded-full sm:-mt-10"
         />
         {profileHover && (
           <div className="absolute z-10 flex flex-col text-[16px] text-lightTextColor bg-lightSidebarChild text-lightTextColor w-32 px-1 rounded-md -translate-x-6 mt-1">
@@ -49,8 +49,8 @@ const Frame = () => {
                 to={i.route}
                 className={({ isActive }) =>
                   isActive
-                    ? "rounded-lg flex items-center gap-4 px-4 py-2 relative self-stretch w-full flex-[0_0_auto] text-lightTextColor bg-greenDark/30 dark:text-darkSidebarItemActiveText dark:bg-darkSidebarItemActiveBg"
-                    : "rounded-lg flex items-center gap-4 px-4 py-2 relative self-stretch w-full flex-[0_0_auto] text-lightTextColor bg-lightSidebarChild dark:bg-transparent dark:text-darkTextColor "
+                    ? "rounded-lg flex items-center gap-4 px-4 py-2 relative self-stretch w-full flex-[0_0_auto] text-lightTextColor bg-greenDark/30  dark:text-darkSidebarItemActiveText dark:bg-darkSidebarItemActiveBg"
+                    : "rounded-lg flex items-center gap-4 px-4 py-2 relative self-stretch w-full flex-[0_0_auto] text-lightTextColor bg-lightSidebarChild dark:bg-transparent dark:text-darkTextColor"
                 }
               >
                 <img

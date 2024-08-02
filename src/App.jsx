@@ -7,10 +7,10 @@ const App = () => {
     <div className="text-lightTextColor dark:text-slate-100 dark:bg-darkBgPrimary font-mono">
       <Navbar />
       <section className="flex px-4 lg:px-12">
-        <aside className="sidebar">
+        <aside className="sidebar absolute top-[41.5px] left-[26px] z-[10] sm:relative">
           <SideBar />
         </aside>
-        <div className="flex flex-col md:flex-row w-full relative" >
+        <div className="flex flex-col md:flex-row w-full relative">
           <div className="w-full px-2.5 bg-transparent dark:bg-darkBgPrimary">
             <Outlet />
           </div>

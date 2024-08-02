@@ -4,6 +4,7 @@ import TodoItem from "./TodoItem";
 import Calendar from "./Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTodo } from "../features/todo/todoReducer";
+import { FiEdit } from "react-icons/fi";
 
 const TodoItemFeature = ({ feature }) => {
   const theme = useSelector((state) => state.theme);
@@ -49,7 +50,7 @@ export default function TodoItemDescription() {
   if (!selectedTodo) return null;
 
   return (
-    <div className="md:relative  md:visible flex flex-col gap-[10px] md:gap-[360px] text-lightTextColor dark:text-darkTextColor">
+    <div className="md:relative md:visible flex flex-col gap-[10px] md:gap-[360px] text-lightTextColor dark:text-darkTextColor">
       <div className="ml-12">
         <TodoItem todo={selectedTodo} />
         <div>
