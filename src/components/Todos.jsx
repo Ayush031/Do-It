@@ -14,7 +14,7 @@ const Todos = () => {
   return (
     <>
       <div>
-        <div className={`${gridType ? "grid grid-cols-3 gap-7" : "space-y4"}`}>
+        <div className={`${gridType ? "grid grid-cols-1 sm:grid-cols-3 gap-7" : "space-y4"}`}>
           {filteredTodos(false).map((todo) => (
             <TodoItem key={todo.id} todo={todo} />
           ))}

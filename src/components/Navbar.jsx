@@ -32,12 +32,14 @@ export default function Navbar() {
   return (
     <div className="h-14 py-3 px-12 bg-[#fbfdfb] dark:bg-darkTheme flex justify-between items-center">
       <div className="justify-start items-center gap-6 flex">
-        <div className="w-6 h-6 relative cursor-pointer" onClick={handleSidebarMenu}>
-          <img
-            src={theme === "dark" ? icons.menu.dark : icons.menu.light}
-            alt="menu"
-          />
-        </div>
+        <img
+          alt="menu"
+          height={24}
+          weight={24}
+          className="cursor-pointer"
+          onClick={handleSidebarMenu}
+          src={theme === "dark" ? icons.menu.dark : icons.menu.light}
+        />
         <div className="justify-start items-center gap-1 flex">
           <div className="w-8 h-8 relative">
             <img src={icons.logo} alt="logo" />
@@ -48,17 +50,21 @@ export default function Navbar() {
         </div>
       </div>
       <div className="h-6 justify-end items-center gap-6 flex">
-        <div className="w-6 h-6 relative cursor-pointer" onClick={() => {}}>
+        {window.innerWidth > 450 && (
           <img
-            src={theme === "dark" ? icons.search.dark : icons.search.light}
             alt="search"
+            height={24}
+            weight={24}
+            className="cursor-pointer"
+            src={theme === "dark" ? icons.search.dark : icons.search.light}
           />
-        </div>
-        <div
-          className="w-6 h-6 relative cursor-pointer"
-          onClick={handleAppGrid}
-        >
+        )}
+        {window.innerWidth > 450 && (
           <img
+            height={24}
+            weight={24}
+            className="cursor-pointer"
+            onClick={handleAppGrid}
             src={
               localGridType
                 ? theme === "dark"
@@ -70,18 +76,15 @@ export default function Navbar() {
             }
             alt="gridType"
           />
-        </div>
-        <div
-          className="w-6 h-6 relative cursor-pointer"
+        )}
+        <img
+          height={24}
+          weight={24}
+          className="cursor-pointer"
           onClick={handleColorTheme}
-        >
-          <img
-            src={
-              theme === "dark" ? icons.themeMode.dark : icons.themeMode.light
-            }
-            alt="color theme"
-          />
-        </div>
+          src={theme === "dark" ? icons.themeMode.dark : icons.themeMode.light}
+          alt="color theme"
+        />
       </div>
     </div>
   );

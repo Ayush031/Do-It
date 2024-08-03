@@ -35,7 +35,8 @@ const TodayTodoNav = () => {
                 <button key={index} type="button">
                   <img
                     src={theme === "dark" ? icon.dark : icon.light}
-                    className="h-6 w-6"
+                    height={24}
+                    width={24}
                   />
                 </button>
               ))}
@@ -43,14 +44,12 @@ const TodayTodoNav = () => {
             <button
               type="submit"
               disabled={!input}
-              className={`px-4 py-2 bg-[#347837]/30 dark:bg-darkGreenColor rounded-lg justify-start items-center gap-4 inline-flex 
+              className={`px-4 py-2 bg-[#347837]/30 dark:bg-darkGreenColor rounded-lg justify-start items-center gap-4 inline-flex text-darkCheckboxFill dark:text-darkTextColor text-xs sm:text-[15px] font-medium leading-tight
                 ${
                   !input && "disabled:cursor-not-allowed disabled:opacity-50"
                 } `}
             >
-              <span className="text-darkCheckboxFill dark:text-darkTextColor text-[15px] font-medium leading-tight">
-                ADD TASK
-              </span>
+              ADD TASK
             </button>
           </div>
         </form>
